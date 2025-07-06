@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial="initial-scale=1.0">
+    <title>Pendaftaran Santri Baru - Pondok Pesantren Al-Babang</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Pendaftaran Santri Baru</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Beranda</a></li>
+                <li><a href="jurusan.html">Jurusan</a></li>
+                <li><a href="pendaftaran.html">Pendaftaran</a></li>
+                <li><a href="alumni.html">Alumni</a></li>
+                <li><a href="/login">Login Portal Orang Tua</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="registration-form">
+            <h2>Formulir Pendaftaran Online</h2>
+            <form id="registrationForm" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="namaCalon">Nama Calon Santri:</label>
+                    <input type="text" id="namaCalon" name="namaCalon" required>
+                </div>
+                <div class="form-group">
+                    <label for="alamatCalon">Alamat Calon Santri:</label>
+                    <textarea id="alamatCalon" name="alamatCalon" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="umurCalon">Umur Calon Santri:</label>
+                    <input type="number" id="umurCalon" name="umurCalon" min="6" max="25" required>
+                </div>
+                <div class="form-group">
+                    <label for="namaOrtu">Nama Orang Tua:</label>
+                    <input type="text" id="namaOrtu" name="namaOrtu" required>
+                </div>
+                <div class="form-group">
+                    <label for="emailOrtu">Email Orang Tua/Wali:</label>
+                    <input type="email" id="emailOrtu" name="emailOrtu" required>
+                </div>
+                <div class="form-group">
+                    <label for="waOrtu">Nomor WhatsApp Orang Tua/Wali:</label>
+                    <input type="tel" id="waOrtu" name="waOrtu" pattern="[0-9]{9,15}" placeholder="Contoh: 08123456789" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="ktpOrtu">Unggah KTP Orang Tua (JPG, maks 500 KB):</label>
+                    <input type="file" id="ktpOrtu" name="ktpOrtu" accept="image/jpeg" required>
+                </div>
+                <div class="form-group">
+                    <label for="kk">Unggah Kartu Keluarga (JPG, maks 500 KB):</label>
+                    <input type="file" id="kk" name="kk" accept="image/jpeg" required>
+                </div>
+                <div class="form-group">
+                    <label for="dataCalon">Unggah Data Calon Santri (JPG, maks 500 KB - Berisi nama, alamat, umur):</label>
+                    <input type="file" id="dataCalon" name="dataCalon" accept="image/jpeg" required>
+                </div>
+
+                <button type="submit" class="btn-primary">Daftar Sekarang</button>
+            </form>
+            <div id="confirmationMessage" style="display: none;">
+                <h3>Terima kasih atas pendaftaran Anda!</h3>
+                <p>Pendaftaran Anda telah kami terima. Informasi mengenai kelulusan/penerimaan akan diinformasikan kemudian melalui email yang terdaftar.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Pondok Pesantren Al-Babang. All rights reserved.</p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

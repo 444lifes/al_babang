@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembelian Seragam - Pondok Pesantren Al-Babang</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Pembelian Seragam</h1>
+        <nav>
+            <ul>
+                <li><a href="/portal">Beranda Portal</a></li>
+                <li><a href="/portal/keuangan">Urusan Keuangan</a></li>
+                <li><a href="/portal/seragam">Pembelian Seragam</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="uniform-info">
+            <h2>Status Pembelian Seragam untuk Santri: {{ santri.nama }}</h2>
+
+            <p>Status Seragam: <strong>{{ seragam.status }}</strong></p>
+
+            {% if seragam.status == 'Sudah dipesan' %}
+                <p>Seragam Anda sudah dipesan. Mohon menunggu proses selanjutnya.</p>
+            {% elif seragam.status == 'Sedang dalam pengiriman' %}
+                <p>Seragam Anda sedang dalam proses pengiriman. Estimasi tiba: {{ seragam.estimasi_tiba }}.</p>
+            {% elif seragam.status == 'Siap diambil' %}
+                <p>Seragam Anda sudah siap diambil di pesantren. Silakan hubungi bagian administrasi.</p>
+            {% else %}
+                <p>Tidak ada informasi pembelian seragam yang tersedia.</p>
+            {% endif %}
+
+            {% if seragam.informasi_tambahan %}
+                <p>Informasi Tambahan: {{ seragam.informasi_tambahan }}</p>
+            {% endif %}
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Pondok Pesantren Al-Babang. All rights reserved.</p>
+    </footer>
+</body>
+</html>
